@@ -31,7 +31,7 @@ Aplikasi web modern untuk manajemen user dengan fitur CRUD (Create, Read, Update
 
 -   **Laravel 12.20.0** - PHP Framework terbaru
 -   **Livewire 3.x** - Full-stack framework untuk Laravel
--   **SQLite** - Lightweight database
+-   **MySql** - Database
 -   **Eloquent ORM** - Database abstraction layer
 
 ### Frontend
@@ -97,7 +97,7 @@ if (stripos($user->name, 'a') !== false) {
 -   PHP 8.2+
 -   Composer
 -   Node.js & NPM
--   SQLite
+-   MySql
 
 ### 1. Clone & Install
 
@@ -118,8 +118,8 @@ php artisan key:generate
 ### 3. Database Setup
 
 ```bash
-# Create SQLite database
-touch database/database.sqlite
+# Create MySql database
+import db_ct-bap.sql
 
 # Run migrations with indexes
 php artisan migrate
