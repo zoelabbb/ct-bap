@@ -11,6 +11,10 @@
 
 Aplikasi web modern untuk manajemen user dengan fitur CRUD (Create, Read, Update, Delete). Dibangun menggunakan Laravel 12 dengan performa dan user experience yang optimal.
 
+<!-- Path gambar public/img/Daftar User.png -->
+
+![Daftar User](public/img/Daftar%20User.png)
+
 ### ✨ Key Features
 
 -   🔍 **Advanced Search** - Pencarian real-time dengan debounce
