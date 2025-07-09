@@ -9,7 +9,7 @@
 
 ## 📋 Deskripsi Project
 
-Aplikasi web modern untuk manajemen user dengan fitur CRUD (Create, Read, Update, Delete) yang lengkap. Dibangun menggunakan teknologi terdepan dengan performa tinggi dan user experience yang optimal.
+Aplikasi web modern untuk manajemen user dengan fitur CRUD (Create, Read, Update, Delete). Dibangun menggunakan Laravel 12 dengan performa dan user experience yang optimal.
 
 ### ✨ Key Features
 
@@ -98,7 +98,7 @@ if (stripos($user->name, 'a') !== false) {
 ### 1. Clone & Install
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/zoelabbb/ct-bap.git
 cd ct-bap
 composer install
 npm install
@@ -205,13 +205,6 @@ With 1,000+ users:
 - Database size: Efficiently indexed
 ```
 
-### Frontend Optimization
-
--   **Debounced Search**: Mencegah excessive API calls
--   **Lazy Loading**: Component loading on demand
--   **Minimal DOM Updates**: Livewire efficient re-rendering
--   **Compressed Assets**: Vite build optimization
-
 ## 🏗️ Architecture
 
 ### MVC Pattern
@@ -247,45 +240,6 @@ With 1,000+ users:
 ```
 
 ## 🔧 Configuration
-
-### Livewire Settings
-
-```php
-// Query string persistence
-protected $queryString = [
-    'search' => ['except' => ''],
-];
-
-// Pagination with custom per-page
-$users = User::paginate(5);
-```
-
-### Performance Monitoring
-
-```php
-// Real-time query speed measurement
-$startTime = microtime(true);
-$users = User::query()->get();
-$queryTime = round((microtime(true) - $startTime) * 1000, 2);
-```
-
-## 🧪 Testing
-
-### Manual Testing
-
-```bash
-# Test with Laravel Tinker
-php artisan tinker
-
-# Test database queries
-User::count()
-User::where('name', 'like', '%test%')->count()
-
-# Test performance
-$start = microtime(true);
-User::paginate(5);
-echo (microtime(true) - $start) * 1000 . 'ms';
-```
 
 ### Sample Data
 
@@ -324,23 +278,6 @@ echo (microtime(true) - $start) * 1000 . 'ms';
 -   **Password Hashing** dengan bcrypt
 -   **UUID Primary Keys** mencegah enumeration attacks
 
-## 🎨 UI/UX Features
-
-### Design System
-
--   **Consistent Color Palette** dengan TailwindCSS
--   **Responsive Grid** untuk mobile & desktop
--   **Loading States** untuk better UX
--   **Flash Messages** dengan auto-hide
--   **Confirmation Dialogs** untuk destructive actions
-
-### Accessibility
-
--   **Keyboard Navigation** support
--   **Screen Reader** friendly
--   **Color Contrast** WCAG compliant
--   **Focus Management** optimal
-
 ## 📝 Development Notes
 
 ### Code Quality
@@ -358,30 +295,13 @@ echo (microtime(true) - $start) * 1000 . 'ms';
 -   ✅ **Error Handling** untuk reliability
 -   ✅ **Performance Monitoring** untuk optimization
 
-## 🚀 Future Enhancements
-
-### Planned Features
-
--   [ ] **Export to Excel/PDF** functionality
--   [ ] **Advanced Filters** (date range, status, etc.)
--   [ ] **Bulk Operations** (multi-select delete/edit)
--   [ ] **User Roles & Permissions** system
--   [ ] **API Endpoints** untuk mobile app
--   [ ] **Real-time Notifications** dengan WebSockets
-
-### Technical Improvements
-
--   [ ] **Unit & Feature Tests** dengan PHPUnit
--   [ ] **API Rate Limiting** untuk security
--   [ ] **Database Backup** automation
--   [ ] **Performance Monitoring** dashboard
--   [ ] **Error Tracking** dengan Sentry
-
 ## 📞 Support
 
 ### Developer Contact
 
--   **Project**: Laravel User CRUD System
+-   **Project**: Laravel User CRUD System - CT BAP
+-   **Author**: Alif Ryuu
+-   **Email**: alifryuuofficial@gmail.com
 -   **Version**: 1.0.0
 -   **Created**: July 2025
 -   **Laravel Version**: 12.20.0

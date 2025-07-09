@@ -9,7 +9,8 @@
             Debug: Search = "{{ $search }}" |
             Users Count = {{ $users->count() }} |
             Total = {{ $users->total() }} |
-            Current Page = {{ $users->currentPage() }}
+            Current Page = {{ $users->currentPage() }} |
+            Confirming Delete = "{{ $confirmingDelete }}"
         </div>
 
         <!-- Performance Info -->
@@ -57,10 +58,12 @@
                 </button>
             @endif
         </div>
-        <a href="{{ route('users.create') }}"
-            class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition duration-200">
-            + Tambah User
-        </a>
+        <div class="flex gap-2">
+            <a href="{{ route('users.create') }}"
+                class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition duration-200">
+                + Tambah User
+            </a>
+        </div>
     </div>
 
     <!-- Flash Messages -->
@@ -127,6 +130,7 @@
                                         Edit
                                     </a>
                                     <button wire:click="confirmDelete('{{ $user->id }}')"
+                                        wire:key="delete-btn-{{ $user->id }}"
                                         class="text-red-600 hover:text-red-900 transition duration-200">
                                         Hapus
                                     </button>
@@ -136,7 +140,7 @@
 
                         <!-- Confirmation Row (hanya tampil jika confirmingDelete === user.id) -->
                         @if ($confirmingDelete == $user->id)
-                            <tr class="bg-yellow-50">
+                            <tr class="bg-yellow-50" wire:key="confirm-row-{{ $user->id }}">
                                 <td colspan="4" class="px-6 py-4">
                                     <div class="flex items-center justify-between">
                                         <div class="flex items-center">
@@ -147,14 +151,17 @@
                                             </svg>
                                             <span class="text-sm text-gray-700">
                                                 Yakin ingin menghapus user <strong>{{ $user->name }}</strong>?
+                                                <span class="text-xs text-gray-500">(ID:
+                                                    {{ substr($user->id, 0, 8) }}...)</span>
                                             </span>
                                         </div>
                                         <div class="flex items-center space-x-3">
                                             <button wire:click="delete('{{ $user->id }}')"
+                                                wire:key="delete-confirm-{{ $user->id }}"
                                                 class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition duration-200">
                                                 Ya, Hapus
                                             </button>
-                                            <button wire:click="cancelDelete"
+                                            <button wire:click="cancelDelete" wire:key="delete-cancel-{{ $user->id }}"
                                                 class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded text-sm font-medium transition duration-200">
                                                 Batal
                                             </button>
